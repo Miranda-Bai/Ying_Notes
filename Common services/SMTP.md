@@ -18,22 +18,49 @@ Each line represents a supported SMTP command:
 
 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY: These are SMTP commands that the server supports. For example, "DATA" is used to start the data transfer phase of an email message, "EHLO" and "HELO" are used for identifying the client to the server, "MAIL" is used to specify the sender's address, "QUIT" is used to close the SMTP session, and so on.
 ### An example
-![image](https://github.com/Miranda-Bai/Ying_Notes/assets/120993025/89263b98-e21b-4175-868e-c195ea9dc560)
+![image](https://github.com/Miranda-Bai/Ying_Notes/assets/120993025/667315d6-5ad0-49f4-971f-313fddfc8491)
+
 
 220 Mail Service ready: This is the SMTP server's initial response, indicating that it is ready to accept SMTP commands.
 
-HELO 0xdf.com: The HELO command is used to identify the client to the server. In this case, you're using "0xdf.com" as the identification.
+HELO ying@mail.com: The HELO command is used to identify the client to the server. In this case, you're using "ying@mail.com" as the identification.
 
 250 Hello.: The server responds with "Hello" to acknowledge the client's identification.
 
-MAIL FROM: <0xdf@aol.com>: This is the "MAIL FROM" command, which specifies the sender's email address.
+MAIL FROM: <ying@mail.com>: This is the "MAIL FROM" command, which specifies the sender's email address.
 
 250 OK: The server acknowledges the sender's email address.
 
-RCPT TO: <0xdf@megabank.com>: This is the "RCPT TO" command, which specifies the recipient's email address.
+RCPT TO: <mico@htb.com>: This is the "RCPT TO" command, which specifies the recipient's email address.
 
 550 Unknown user: The server responds with "Unknown user" for the recipient, indicating that it does not recognize the recipient's email address.
 
 Subsequent RCPT TO commands follow the same pattern for different recipient email addresses.
 
-In this interaction, you are essentially simulating the process of sending an email through an SMTP server. However, the server responds with "Unknown user" for the recipient address <0xdf@megabank.com, indicating that it does not have a user with that email address.
+In this interaction, you are essentially simulating the process of sending an email through an SMTP server. However, the server responds with "Unknown user" for the recipient address <ying@mail.com>, indicating that it does not have a user with that email address.
+
+### SMTP User Enumeration
+
+[smtp-user-enum](https://pentestmonkey.net/tools/user-enumeration/smtp-user-enum) by pentestmonkey
+
+#### Install dependencies:
+   ```
+   # perl -MCPAN -e shell
+   cpan> install Getopt::Std
+   ```
+Dependencies:
+    
+    Socket
+    
+    IO::Handle
+    
+    IO::Select
+    
+    IO::Socket::INET
+    
+    Getopt::Std
+   
+![image](https://github.com/Miranda-Bai/Ying_Notes/assets/120993025/9df1fb27-dcd2-4f74-b395-f07b96553eed)
+
+#### Download smtp-user-emnu and copy it to /usr/bin/
+ 
